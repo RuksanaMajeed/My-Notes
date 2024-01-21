@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as React from "react";
+import "./App.css";
+import IconButton from "@mui/material/IconButton";
+import { Menu } from "@mui/icons-material";
+import { useCallback, useState } from "react";
+import NavBar from "./components/NavBar/NavBar";
+import SideNav from "./components/NavBar/SideVav";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import CreateTodo from "./components/Pages/CreateTodo";
+import About from "./components/Pages/About";
+import Trash from "./components/Pages/Trash";
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<CreateTodo />} />
+          <Route path="/trash" element={<Trash />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
